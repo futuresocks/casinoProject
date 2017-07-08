@@ -12,6 +12,8 @@ public class Deck {
 
     public Deck() {
         this.cards = new ArrayList<Card>();
+        populate();
+        shuffle();
     }
 
     public void populate() {

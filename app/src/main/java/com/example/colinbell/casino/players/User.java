@@ -6,8 +6,6 @@ import com.example.colinbell.casino.cards.Card;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-.Cards.Card;
-
 /**
  * Created by colinbell on 23/06/2017.
  */
@@ -36,7 +34,6 @@ public class User extends Player {
 
         takeCard(deck);
         takeCard(deck);
-        System.out.println(getName() + " holds " + showHand());
     }
 
     public int countHand() {

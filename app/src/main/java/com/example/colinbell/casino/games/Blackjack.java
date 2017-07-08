@@ -8,7 +8,7 @@ import com.example.colinbell.casino.players.User;
  * Created by colinbell on 23/06/2017.
  */
 
-public class Blackjack implements Game {
+public class Blackjack {
     Deck deck;
     User player;
     Dealer dealer;
@@ -26,35 +26,36 @@ public class Blackjack implements Game {
         player.deal(deck);
         dealer.deal(deck);
         if (checkBlackjack(player, dealer)) {
-            System.out.println("BLACKJACK!");
-            declareWinner(player, dealer);
+            compareHands(player, dealer);
         }
         {
             player.userTurn(deck);
             dealer.dealerTurn(deck);
-            declareWinner(player, dealer);
+            compareHands(player, dealer);
         }
     }
 
-    public void declareWinner(User player, Dealer dealer) {
+    public int compareHands(User player, Dealer dealer) {
+        int outcome = 0;
         if ((dealer.countHand() == 2 && dealer.handTotal() == 21 && player.handTotal() != 21)) {
-            System.out.println(dealer.getName() + " wins with blackjack, " + player.getName() + " had " + player.handTotal());
+            outcome = -2;
         } else if (player.countHand() == 2 && player.handTotal() == 21 && dealer.handTotal() != 21) {
-            System.out.println(player.getName() + " wins with blackjack, " + dealer.getName() + " had " + dealer.handTotal());
+            outcome = 4;
         } else if (player.handTotal() == dealer.handTotal()) {
-            System.out.println("Draw game!");
+            outcome = 0;
         } else if (dealer.isBust() && player.isBust()) {
-            System.out.println("Everyone bust, draw game!");
+            outcome = 1;
         } else if (dealer.isBust() && !player.isBust()) {
-            System.out.println(dealer.getName() + " is bust, " + player.getName() + " wins with " + player.handTotal());
+            outcome = 3 ;
         } else if (!dealer.isBust() && player.isBust()) {
-            System.out.println(player.getName() + " is bust, " + dealer.getName() + " wins with " + dealer.handTotal());
+            outcome = -3;
         } else if (!dealer.isBust() && !player.isBust()) {
             if (player.handTotal() > dealer.handTotal()) {
-                System.out.println(player.getName() + " has " + player.handTotal() + ", " + dealer.getName() + " has " + dealer.handTotal() + ", " + player.getName() + " wins!");
+                outcome = 2;
             } else
-                System.out.println(dealer.getName() + " has " + dealer.handTotal() + ", " + player.getName() + " has " + player.handTotal() + ", " + dealer.getName() + " wins!");
+                outcome = -1;
         }
+        return outcome;
     }
 
     public boolean checkBlackjack(User player, Dealer dealer) {

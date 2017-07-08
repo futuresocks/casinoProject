@@ -1,8 +1,8 @@
 package com.example.colinbell.casino.players;
 
-import com.example.colinbell.blackjack.Cards.Card;
-import com.example.colinbell.blackjack.Cards.Deck;
-import com.example.colinbell.casino.Player;
+import com.example.colinbell.casino.cards.Card;
+import com.example.colinbell.casino.cards.Deck;
+import com.example.colinbell.casino.players.Player;
 
 import java.util.ArrayList;
 
@@ -64,11 +64,13 @@ public class Dealer extends Player {
     }
 
     public boolean isBust() {
-
-//
-//        if (handTotal() > 21) {
-//            for (Card card : hand){
-//            if (card.value() == 11){card.acesLow()}}
+        if (handTotal() > 21) {
+            for (Card card : hand) {
+                if (card.value() == 11) {
+                    card.acesLow();
+                }
+            }
+        }
         return (handTotal() > 21);
     }
 

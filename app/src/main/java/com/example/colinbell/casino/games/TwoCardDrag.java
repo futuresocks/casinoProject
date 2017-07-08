@@ -1,8 +1,41 @@
 package com.example.colinbell.casino.games;
 
+import com.example.colinbell.casino.cards.Card;
+import com.example.colinbell.casino.cards.Deck;
+import com.example.colinbell.casino.players.Dealer;
+import com.example.colinbell.casino.players.User;
+
 /**
  * Created by colinbell on 07/07/2017.
  */
 
-public class TwoCardDrag {
-}
+//public class TwoCardDrag {
+//    private User user;
+//    private Dealer dealer;
+//    private Deck deck;
+//
+//    public TwoCardDrag() {
+//        user = new User();
+//        dealer = new Dealer();
+//        deck = new Deck();
+//    }
+//
+//    public int playGame(){
+//        deck.populate();
+//        deck.shuffle();
+//        Card userCard = deck.remove(0);
+//        Card dealerCard = deck.remove(0);
+//        int result = compareCards(userCard, dealerCard);
+//        return result;
+//    }
+//
+//    private int compareCards(Card userCard, Card dealerCard){
+//        if (userCard.getRank().getValue() == dealerCard.getRank().getValue()){
+//            return 0;
+//        }
+//        if (userCard.getRank().getValue() < dealerCard.getRank().getValue()){
+//            return -1;
+//        }
+//    }
+
+
