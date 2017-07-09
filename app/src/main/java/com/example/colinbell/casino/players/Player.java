@@ -16,7 +16,9 @@ abstract class Player {
         this.hand = new ArrayList<Card>();
     }
 
-    abstract String getName();
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
 
     abstract void takeCard(Deck deck);
 

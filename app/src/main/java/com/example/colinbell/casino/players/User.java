@@ -10,19 +10,11 @@ import java.util.Scanner;
  * Created by colinbell on 23/06/2017.
  */
 
-public class User extends Player {
+public class User extends Player implements Playable{
     public ArrayList<Card> hand;
-    public String name;
-    public Scanner sc;
 
-    public User(String name) {
+    public User() {
         this.hand = new ArrayList<Card>();
-        this.name = name;
-        sc = new Scanner(System.in);
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void takeCard(Deck deck) {
@@ -60,22 +52,19 @@ public class User extends Player {
         return handTotal() > 21;
     }
 
-    public void userTurn(Deck deck) {
-        System.out.println(getName() + ", your hand is worth " + handTotal() + ". Hit or Stick?");
-        String input = sc.nextLine().toUpperCase();
-        char choice = input.charAt(0);
-        switch (choice) {
-            case 'H':
-                takeCard(deck);
-                System.out.println(getName() + " now holds " + showHand());
-                if (isBust()) {
-                    System.out.println(getName() + " has " + handTotal() + ", and is bust.");
-                } else {
-                    userTurn(deck);
-                }
-                break;
-            case 'S':
-                System.out.println(getName() + " stands at " + handTotal());
-        }
-    }
+//    public void userTurn(Deck deck) {
+//        switch (choice) {
+//            case 'H':
+//                takeCard(deck);
+//                System.out.println(getName() + " now holds " + showHand());
+//                if (isBust()) {
+//                    System.out.println(getName() + " has " + handTotal() + ", and is bust.");
+//                } else {
+//                    userTurn(deck);
+//                }
+//                break;
+//            case 'S':
+//                System.out.println(getName() + " stands at " + handTotal());
+//        }
+//    }
 }

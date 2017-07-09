@@ -25,29 +25,49 @@ public class blackjackActivity extends AppCompatActivity {
     Deck deck;
     Blackjack blackjack;
     Console console;
+    Button hit;
+    Button stick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blackjack);
 
-        dealerHand = (TextView)findViewById(R.id.dealerHand);
-        playerHand = (TextView)findViewById(R.id.playerHand);
-        deal = (Button)findViewById(R.id.deal);
-        winner = (TextView)findViewById(R.id.winner);
-        User user = new User("Colin");
-        Dealer dealer = new Dealer("Dealer");
+        dealerHand = (TextView) findViewById(R.id.dealerHand);
+        playerHand = (TextView) findViewById(R.id.playerHand);
+        deal = (Button) findViewById(R.id.deal);
+        winner = (TextView) findViewById(R.id.winner);
+        User user = new User();
+        Dealer dealer = new Dealer();
         Deck deck = new Deck();
         Blackjack blackjack = new Blackjack();
         Console console = new Console();
+        stick = (Button) findViewById(R.id.stick);
+        hit = (Button) findViewById(R.id.hit);
+        hit.setVisibility(View.INVISIBLE);
+        stick.setVisibility(View.INVISIBLE);
+        deal.setVisibility(View.INVISIBLE);
 
         user.deal(deck);
         dealer.deal(deck);
         dealerHand.setText(dealer.showHand());
         playerHand.setText(user.showHand());
-        int outcome = blackjack.compareHands(user, dealer);
-        console.declareWinner(winner, outcome);
-
+        if (blackjack.checkBlackjack(user, dealer)) {
+            int outcome = blackjack.compareHands(user, dealer);
+            console.declareWinner(winner, outcome);
+        } else {
+            hit.setVisibility(View.VISIBLE);
+            stick.setVisibility(View.VISIBLE);
+        }
     }
 
-}
+    public void onButtonHit(View hit, User user, Deck deck){
+            user.takeCard(deck);
+        }
+
+        public void onButtonStick(View stick){
+            dealer.dealerTurn(deck);
+        }
+    }
+
+

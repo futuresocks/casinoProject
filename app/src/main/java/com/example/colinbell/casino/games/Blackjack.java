@@ -9,30 +9,22 @@ import com.example.colinbell.casino.players.User;
  */
 
 public class Blackjack {
-    Deck deck;
-    User player;
-    Dealer dealer;
 
     public Blackjack() {
-        deck = new Deck();
-        player = new User("Colin");
-        dealer = new Dealer("Dealer");
     }
 
 
     public void playGame() {
-        deck.populate();
-        deck.shuffle();
-        player.deal(deck);
-        dealer.deal(deck);
-        if (checkBlackjack(player, dealer)) {
-            compareHands(player, dealer);
-        }
-        {
-            player.userTurn(deck);
-            dealer.dealerTurn(deck);
-            compareHands(player, dealer);
-        }
+//        player.deal(deck);
+//        dealer.deal(deck);
+//        if (checkBlackjack(player, dealer)) {
+//            compareHands(player, dealer);
+//        }
+//        {
+//            player.userTurn(deck);
+//            dealer.dealerTurn(deck);
+//            compareHands(player, dealer);
+//        }
     }
 
     public int compareHands(User player, Dealer dealer) {

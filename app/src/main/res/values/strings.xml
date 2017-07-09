@@ -2,10 +2,13 @@
     <string name="app_name">Casino</string>
     <string name="dealerWins">Dealer wins!</string>
     <string name="playerWins">Player wins!</string>
+    <string name="dealerBlackjack">Dealer has Blackjack!</string>
+    <string name="playerBlackjack">Player has Blackjack!</string>
     <string name="blackjack">That\'s a Blackjack!</string>
     <string name="draw">It\'s a draw!</string>
     <string name="dealerBust">Dealer bust!</string>
     <string name="playerBust">Player bust!</string>
+    <string name="everyoneBust">Everyone bust!</string>
     <string name="playerHandTotal">Player hand total:</string>
     <string name="dealerHandTotal">Dealer hand total:</string>
     <string name="dealerScore">Dealer wins:</string>

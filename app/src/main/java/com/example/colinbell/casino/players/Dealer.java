@@ -10,17 +10,11 @@ import java.util.ArrayList;
  * Created by colinbell on 24/06/2017.
  */
 
-public class Dealer extends Player {
+public class Dealer extends Player implements Playable {
     public ArrayList<Card> hand;
-    public String name;
 
-    public Dealer(String name) {
+    public Dealer() {
         this.hand = new ArrayList<Card>();
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void takeCard(Deck deck) {
@@ -29,10 +23,8 @@ public class Dealer extends Player {
     }
 
     public void deal(Deck deck) {
-
         takeCard(deck);
         takeCard(deck);
-        System.out.println(getName() + " shows " + showFirstCard());
     }
 
     public int countHand() {
@@ -75,16 +67,8 @@ public class Dealer extends Player {
     }
 
     public void dealerTurn(Deck deck) {
-
-        System.out.println(getName() + " holds " + showHand());
         while (handTotal() < 17) {
             takeCard(deck);
-            System.out.println(getName() + " draws a card and now holds " + showHand());
-        }
-        if (isBust()) {
-            System.out.println(getName() + " has " + handTotal() + ", and is bust.");
-        } else if (handTotal() <= 21) {
-            System.out.println(getName() + " stands at " + handTotal());
         }
     }
 }
