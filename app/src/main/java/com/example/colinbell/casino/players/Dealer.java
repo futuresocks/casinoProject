@@ -10,11 +10,25 @@ import java.util.ArrayList;
  * Created by colinbell on 24/06/2017.
  */
 
-public class Dealer extends Player implements Playable {
+public class Dealer extends Player {
     public ArrayList<Card> hand;
+    private String name;
 
     public Dealer() {
+        this.name = "Dealer";
         this.hand = new ArrayList<Card>();
+    }
+
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void clearHand(){
+        this.hand.clear();
     }
 
     public void takeCard(Deck deck) {

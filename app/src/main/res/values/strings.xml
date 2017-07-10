@@ -13,7 +13,7 @@
     <string name="dealerHandTotal">Dealer hand total:</string>
     <string name="dealerScore">Dealer wins:</string>
     <string name="playerScore">Player score:</string>
-    <string name="deal">Deal again</string>
+    <string name="deal">Deal</string>
     <string name="hit">Hit</string>
     <string name="stick">Stick</string>
     <string name="hi">Higher</string>

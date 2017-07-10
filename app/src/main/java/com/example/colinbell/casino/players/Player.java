@@ -9,8 +9,9 @@ import java.util.ArrayList;
  * Created by colinbell on 23/06/2017.
  */
 
-abstract class Player {
+public abstract class Player {
     private ArrayList<Card> hand;
+    private String name;
 
     public Player() {
         this.hand = new ArrayList<Card>();
@@ -28,8 +29,26 @@ abstract class Player {
 
     abstract String showHand();
 
-    abstract int handTotal();
+    public int handTotal() {
+        int total = 0;
+        for (Card card : hand) {
+            total += card.value();
+        }
+        return total;
+    }
 
-    abstract boolean isBust();
+    public boolean isBust() {
+        if (handTotal() > 21) {
+            for (Card card : hand) {
+                if (card.value() == 11) {
+                    card.acesLow();
+                }
+            }
+        }
+        return (handTotal() > 21);
+    }
 
+    public String getName() {
+        return this.name;
+    }
 }

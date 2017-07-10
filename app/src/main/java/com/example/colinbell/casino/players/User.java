@@ -10,11 +10,25 @@ import java.util.Scanner;
  * Created by colinbell on 23/06/2017.
  */
 
-public class User extends Player implements Playable{
+public class User extends Player{
     public ArrayList<Card> hand;
+    public String name;
 
     public User() {
         this.hand = new ArrayList<Card>();
+        this.name = "Player";
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
+
+    public void clearHand(){
+        this.hand.clear();
     }
 
     public void takeCard(Deck deck) {
