@@ -22,6 +22,7 @@ import com.example.colinbell.casino.cards.Deck;
 import com.example.colinbell.casino.cards.Guess;
 import com.example.colinbell.casino.players.User;
 
+import static com.example.colinbell.casino.R.drawable.cardback;
 import static com.example.colinbell.casino.R.drawable.club;
 import static com.example.colinbell.casino.R.drawable.diamond;
 import static com.example.colinbell.casino.R.drawable.heart;
@@ -42,8 +43,11 @@ public class drawHiLoActivity extends AppCompatActivity {
     Console console;
     User player;
     Deck deck;
-    ImageView cardDisplay;
-    TextView rankDisplay;
+    ImageView leftCardDisplay;
+    ImageView rightCardDisplay;
+    TextView leftRankDisplay;
+    TextView rightRankDisplay;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +63,10 @@ public class drawHiLoActivity extends AppCompatActivity {
         console = new Console();
         player = new User();
         deck = new Deck();
-        cardDisplay = (ImageView) findViewById(R.id.cardDisplay);
-        rankDisplay = (TextView) findViewById(R.id.rankDisplay);
+        leftCardDisplay = (ImageView) findViewById(R.id.leftCardDisplay);
+        rightCardDisplay = (ImageView) findViewById(R.id.rightCardDisplay);
+        leftRankDisplay = (TextView) findViewById(R.id.leftCardRanking);
+        rightRankDisplay = (TextView) findViewById(R.id.rightCardRanking);
 
 
 
@@ -102,12 +108,14 @@ public class drawHiLoActivity extends AppCompatActivity {
 
 
     public void onClickDeal(View view) {
+        rightCardDisplay.setImageResource(cardback);
+        rightRankDisplay.setText("");
         if (player.countHand() == 1) {
             player.takeCard(deck);
         } else {
             player.deal(deck);
         }
-        cardShower(player.showCard(0));
+        cardShower(leftRankDisplay, leftCardDisplay, player.showCard(0));
         high.setVisibility(View.VISIBLE);
         lower.setVisibility(View.VISIBLE);
         deal.setVisibility(View.INVISIBLE);
@@ -127,7 +135,7 @@ public class drawHiLoActivity extends AppCompatActivity {
     }
 
     public void endGame(Guess playerGuess) {
-        cardShower(player.showCard(1));
+        cardShower(rightRankDisplay, rightCardDisplay, player.showCard(1));
         Guess outcome = null;
         if (player.getHand().get(0).getRank().getRanking() > player.getHand().get(1).getRank().getRanking()) {
             outcome = Guess.LOWER;
@@ -154,19 +162,19 @@ public class drawHiLoActivity extends AppCompatActivity {
         saveHiScore();
     }
 
-    public void cardShower(Card card){
-        rankDisplay.setText(card.getRank().getDisplayValue());
+    public void cardShower(TextView text, ImageView view, Card card){
+        text.setText(card.getRank().getDisplayValue());
         if (card.getSuit() == Suit.CLUBS){
-            cardDisplay.setImageResource(club);
+            view.setImageResource(club);
         }
         if (card.getSuit() == Suit.DIAMONDS){
-            cardDisplay.setImageResource(diamond);
+            view.setImageResource(diamond);
         }
         if (card.getSuit() == Suit.SPADES){
-            cardDisplay.setImageResource(spade);
+            view.setImageResource(spade);
         }
         if (card.getSuit() == Suit.HEARTS){
-            cardDisplay.setImageResource(heart);}
+            view.setImageResource(heart);}
     }
 
 
