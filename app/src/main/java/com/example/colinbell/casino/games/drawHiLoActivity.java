@@ -9,8 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.colinbell.casino.R;
+import com.example.colinbell.casino.hiScoreActivity;
 import com.example.colinbell.casino.scoreData.SavedScores;
 import com.example.colinbell.casino.nonGameScreens.aboutActivity;
 import com.example.colinbell.casino.cards.Deck;
@@ -20,6 +22,7 @@ import com.example.colinbell.casino.players.User;
 import static com.example.colinbell.casino.R.string.draw;
 import static com.example.colinbell.casino.R.string.playerLoses;
 import static com.example.colinbell.casino.R.string.playerWins;
+import static com.example.colinbell.casino.R.string.reset;
 
 public class drawHiLoActivity extends AppCompatActivity {
 
@@ -69,9 +72,18 @@ public class drawHiLoActivity extends AppCompatActivity {
             Intent intent = new Intent(this, blackjackActivity.class);
             startActivity(intent);
         }
+        if (item.getItemId() == R.id.action_hiScores){
+            Intent hiScores = new Intent(this, hiScoreActivity.class);
+            startActivity(hiScores);
+        }
         if (item.getItemId() == R.id.action_about){
             Intent intentAbout = new Intent(this, aboutActivity.class);
             startActivity(intentAbout);
+        }
+        if (item.getItemId() == R.id.action_resetScore){
+            console.resetScores();
+            Toast.makeText(this, reset, Toast.LENGTH_LONG).show();
+            showStreak.setText(String.valueOf(console.getUserScore()));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -127,8 +139,15 @@ public class drawHiLoActivity extends AppCompatActivity {
         deal.setVisibility(View.VISIBLE);
         showStreak.setText(String.valueOf(console.getUserScore()));
         SavedScores.saveScore(this, console.getUserScore(), "playerStreak");
+        saveHiScore();
     }
 
+    public void saveHiScore(){
+        if (console.getUserScore() > console.getHighScore()){
+            console.setHighScore(console.getUserScore());
+            SavedScores.saveScore(this, console.getHighScore(), "hiLoHiScore");
+        }
+    }
 
 
 

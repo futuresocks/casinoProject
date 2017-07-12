@@ -4,6 +4,12 @@
     <item android:id="@+id/action_blackjack"
         android:title="@string/gameNameBj"/>
 
+    <item android:id="@+id/action_resetScore"
+        android:title="@string/scoreReset"/>
+
+    <item android:id="@+id/action_hiScores"
+        android:title="@string/hiScore"/>
+
     <item android:id="@+id/action_about"
         android:title="@string/About"/>
 

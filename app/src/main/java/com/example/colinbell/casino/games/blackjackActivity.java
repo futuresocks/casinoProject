@@ -9,13 +9,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.colinbell.casino.R;
+import com.example.colinbell.casino.hiScoreActivity;
 import com.example.colinbell.casino.scoreData.SavedScores;
 import com.example.colinbell.casino.nonGameScreens.aboutActivity;
 import com.example.colinbell.casino.cards.Deck;
 import com.example.colinbell.casino.players.Dealer;
 import com.example.colinbell.casino.players.User;
+
+import static com.example.colinbell.casino.R.string.reset;
 
 public class blackjackActivity extends AppCompatActivity {
 
@@ -80,6 +84,16 @@ public class blackjackActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.action_draw_hi_lo){
             Intent intent = new Intent(this, drawHiLoActivity.class);
             startActivity(intent);
+        }
+        if(item.getItemId() == R.id.action_hiScores){
+            Intent hiScores = new Intent(this, hiScoreActivity.class);
+            startActivity(hiScores);
+        }
+        if (item.getItemId() == R.id.action_resetScore){
+            console.resetScores();
+            Toast.makeText(this, reset, Toast.LENGTH_LONG).show();
+            playerScore.setText(String.valueOf(console.getUserScore()));
+            dealerScore.setText(String.valueOf(console.getDealerScore()));
         }
         if (item.getItemId() == R.id.action_about){
             Intent intentAbout = new Intent(this, aboutActivity.class);
@@ -159,7 +173,7 @@ public class blackjackActivity extends AppCompatActivity {
 
         SavedScores.saveScore(this, console.getDealerScore(), "dealerScore");
         SavedScores.saveScore(this, console.getUserScore(), "userScore");
-
+        saveHiScore();
     }
 
     public int compareHands(User player, Dealer dealer) {
@@ -187,6 +201,13 @@ public class blackjackActivity extends AppCompatActivity {
 
     public boolean checkBlackjack(User player, Dealer dealer) {
         return player.handTotal() == 21 || dealer.handTotal() == 21;
+    }
+
+    public void saveHiScore(){
+        if (console.getUserScore() > console.getHighScore()){
+            console.setHighScore(console.getUserScore());
+            SavedScores.saveScore(this, console.getHighScore(), "bjHiScore");
+        }
     }
 
 }

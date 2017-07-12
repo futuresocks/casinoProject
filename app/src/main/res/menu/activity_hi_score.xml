@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:id="@+id/action_blackjack"
+        android:title="@string/gameNameBj"/>
+
     <item android:id="@+id/action_draw_hi_lo"
         android:title="@string/gameNameHl"/>
-
-    <item android:id="@+id/action_resetScore"
-        android:title="@string/scoreReset"/>
-
-    <item android:id="@+id/action_hiScores"
-        android:title="@string/hiScore"/>
 
     <item android:id="@+id/action_about"
         android:title="@string/About"/>

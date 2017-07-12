@@ -22,10 +22,21 @@ import static com.example.colinbell.casino.R.string.playerWins;
 public class Console {
     private int userScore;
     private int dealerScore;
+    private int highScore;
 
     public Console() {
         this.userScore = 0;
         this.dealerScore = 0;
+        this.highScore = 0;
+
+    }
+
+    public int getHighScore() {
+        return highScore;
+    }
+
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
     }
 
     public int getUserScore() {
@@ -42,6 +53,11 @@ public class Console {
 
     public void setDealerScore(int dealerScore) {
         this.dealerScore = dealerScore;
+    }
+
+    public void resetScores(){
+        setUserScore(0);
+        setDealerScore(0);
     }
 
     public void updateScore(int outcome) {

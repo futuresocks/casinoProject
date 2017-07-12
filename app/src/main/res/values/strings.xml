@@ -20,6 +20,9 @@
     <string name="stick">Stick</string>
     <string name="hi">Higher</string>
     <string name="lo">Lower</string>
+    <string name="scoreReset">Reset Your Score</string>
+    <string name="reset">Your score has been reset</string>
+    <string name="hiScore">High Scores</string>
     <string name="streak">Player streak:</string>
     <string name="About">About</string>
     <string name="gameNameBj">Blackjack</string>

@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".nonGameScreens.aboutActivity" />
-        <activity android:name=".games.twoCardDragActivity"></activity>
+        <activity android:name=".games.twoCardDragActivity" />
+        <activity android:name=".hiScoreActivity"></activity>
     </application>
 
 </manifest>
