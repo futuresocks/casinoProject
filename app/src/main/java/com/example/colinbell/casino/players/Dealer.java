@@ -66,17 +66,17 @@ public class Dealer extends Player {
         for (Card card : hand) {
             total += card.value();
         }
+        if (total > 21) {
+            for (Card card : hand) {
+                if (card.value() == 11) {
+                    total -= 10;
+                }
+            }
+        }
         return total;
     }
 
     public boolean isBust() {
-        if (handTotal() > 21) {
-            for (Card card : hand) {
-                if (card.value() == 11) {
-                    card.acesLow();
-                }
-            }
-        }
         return (handTotal() > 21);
     }
 
@@ -85,4 +85,6 @@ public class Dealer extends Player {
             takeCard(deck);
         }
     }
+
+
 }

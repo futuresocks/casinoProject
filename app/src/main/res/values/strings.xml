@@ -1,11 +1,12 @@
 <resources>
-    <string name="app_name">Casino</string>
+    <string name="app_name">The Dragon Wolf Grand</string>
     <string name="dealerWins">Dealer wins!</string>
     <string name="playerWins">Player wins!</string>
+    <string name="playerLoses">Player loses!</string>
     <string name="dealerBlackjack">Dealer has Blackjack!</string>
     <string name="playerBlackjack">Player has Blackjack!</string>
     <string name="blackjack">That\'s a Blackjack!</string>
-    <string name="draw">It\'s a draw!</string>
+    <string name="draw">PUSH!</string>
     <string name="dealerBust">Dealer bust!</string>
     <string name="playerBust">Player bust!</string>
     <string name="everyoneBust">Everyone bust!</string>
@@ -15,15 +16,17 @@
     <string name="playerScore">Player score:</string>
     <string name="deal">Deal</string>
     <string name="hit">Hit</string>
+    <string name="hitme">Hit me!</string>
     <string name="stick">Stick</string>
     <string name="hi">Higher</string>
     <string name="lo">Lower</string>
     <string name="streak">Player streak:</string>
-    <string name="About">About Bell</string>
+    <string name="About">About</string>
     <string name="gameNameBj">Blackjack</string>
     <string name="gameNameHl">Draw Hi Lo</string>
     <string name="gameName2cd">Two Card Drag</string>
     <string name="bjRules">The cards 2 through 10 are worth their face value. Kings\, queens\, and jacks are each worth 10\, and aces may be used as either 1 or 11. The object for the player is to draw cards totaling closer to 21\, without going over\, than the dealer\'s cards. The best total of all is a two-card 21\, or a blackjack.</string>
     <string name="hlRules">The player is given a random card. The player will be given the choice to bet whether the next card will be higher or lower.</string>
     <string name="twocdRules">Dealer and player are given a random card. Highest card wins!</string>
+    <string name="aboutText">This is a casino app made by Colin Bell as part of his second project at Codeclan. THANKS FOR LOOKING</string>
 </resources>

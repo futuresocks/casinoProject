@@ -1,7 +1,11 @@
 package com.example.colinbell.casino;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -62,6 +66,27 @@ public class blackjackActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.activity_blackjack, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        if (item.getItemId() == R.id.action_draw_hi_lo){
+            Intent intent = new Intent(this, drawHiLoActivity.class);
+            startActivity(intent);
+        }
+        if (item.getItemId() == R.id.action_about){
+            Intent intentAbout = new Intent(this, aboutActivity.class);
+            startActivity(intentAbout);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
     public void onButtonDeal(View deal) {
         if (deck.getDeckSize() < 10) {
             deck.populate();
@@ -91,7 +116,6 @@ public class blackjackActivity extends AppCompatActivity {
             endGame();
         }
     }
-
 
     public void onButtonStick(View stick) {
         hit.setVisibility(View.INVISIBLE);

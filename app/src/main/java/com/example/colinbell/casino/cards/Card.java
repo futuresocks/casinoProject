@@ -30,8 +30,5 @@ public class Card {
         return this.rank.getValue();
     }
 
-    public void acesLow() {
-        this.rank.aceChange();
-    }
 }
 

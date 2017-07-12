@@ -59,26 +59,24 @@ public class User extends Player{
         for (Card card : hand) {
             total += card.value();
         }
+        if (total > 21) {
+            for (Card card : hand) {
+                if (card.value() == 11) {
+                    total -= 10;
+                }
+            }
+        }
         return total;
     }
 
     public boolean isBust() {
-        return handTotal() > 21;
+        return (handTotal() > 21);}
+
+    public String showCard(int i){
+        return this.hand.get(i).cardName();
     }
 
-//    public void userTurn(Deck deck) {
-//        switch (choice) {
-//            case 'H':
-//                takeCard(deck);
-//                System.out.println(getName() + " now holds " + showHand());
-//                if (isBust()) {
-//                    System.out.println(getName() + " has " + handTotal() + ", and is bust.");
-//                } else {
-//                    userTurn(deck);
-//                }
-//                break;
-//            case 'S':
-//                System.out.println(getName() + " stands at " + handTotal());
-//        }
-//    }
+    public void burnCard(){
+        this.hand.remove(0);
+    }
 }

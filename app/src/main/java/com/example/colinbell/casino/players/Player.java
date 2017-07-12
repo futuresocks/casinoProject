@@ -38,15 +38,7 @@ public abstract class Player {
     }
 
     public boolean isBust() {
-        if (handTotal() > 21) {
-            for (Card card : hand) {
-                if (card.value() == 11) {
-                    card.acesLow();
-                }
-            }
-        }
-        return (handTotal() > 21);
-    }
+        return (handTotal() > 21);}
 
     public String getName() {
         return this.name;

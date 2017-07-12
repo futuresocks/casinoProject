@@ -9,13 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".blackjackActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".blackjackActivity" />
+        <activity android:name=".drawHiLoActivity" />
         <activity android:name=".launchScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".aboutActivity" />
+        <activity android:name=".twoCardDrag"></activity>
     </application>
 
 </manifest>

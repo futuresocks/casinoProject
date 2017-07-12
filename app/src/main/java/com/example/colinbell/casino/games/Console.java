@@ -103,11 +103,7 @@ public class Console {
 //    }
 //
     public void displayHandTotal(TextView view, Player player) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(player.getName());
-        sb.append("'s hand totals ");
-        sb.append(String.valueOf(player.handTotal()));
-        view.setText(sb);
+        view.setText(String.valueOf(player.handTotal()));
     }
 }
 

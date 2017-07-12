@@ -5,38 +5,40 @@ package com.example.colinbell.casino.cards;
  */
 
 public enum Rank {
-    TWO(2, "2"),
+    TWO(2, "2", 1),
 
-    THREE(3, "3"),
+    THREE(3, "3", 2),
 
-    FOUR(4, "4"),
+    FOUR(4, "4", 3),
 
-    FIVE(5, "5"),
+    FIVE(5, "5", 4),
 
-    SIX(6, "6"),
+    SIX(6, "6", 5),
 
-    SEVEN(7, "7"),
+    SEVEN(7, "7", 6),
 
-    EIGHT(8, "8"),
+    EIGHT(8, "8", 7),
 
-    NINE(9, "9"),
+    NINE(9, "9", 8),
 
-    TEN(10, "10"),
+    TEN(10, "10", 9),
 
-    JACK(10, "J"),
+    JACK(10, "J", 10),
 
-    QUEEN(10, "Q"),
+    QUEEN(10, "Q", 11),
 
-    KING(10, "K"),
+    KING(10, "K", 12),
 
-    ACE(11, "A");
+    ACE(11, "A", 13);
 
     private int value;
     private String displayValue;
+    private int ranking;
 
-    Rank(int value, String displayValue) {
+    Rank(int value, String displayValue, int ranking) {
         this.value = value;
         this.displayValue = displayValue;
+        this.ranking = ranking;
     }
 
     public int getValue() {
@@ -47,7 +49,7 @@ public enum Rank {
         return this.displayValue;
     }
 
-    public void aceChange() {
-        this.value = 1;
+    public int getRanking() {
+        return ranking;
     }
 }
