@@ -1,7 +1,9 @@
-package com.example.colinbell.casino;
+package com.example.colinbell.casino.nonGameScreens;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.colinbell.casino.R;
 
 public class aboutActivity extends AppCompatActivity {
 

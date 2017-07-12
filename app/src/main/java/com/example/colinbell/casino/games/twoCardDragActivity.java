@@ -1,9 +1,11 @@
-package com.example.colinbell.casino;
+package com.example.colinbell.casino.games;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class twoCardDrag extends AppCompatActivity {
+import com.example.colinbell.casino.R;
+
+public class twoCardDragActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

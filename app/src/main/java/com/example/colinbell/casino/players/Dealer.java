@@ -12,19 +12,13 @@ import java.util.ArrayList;
 
 public class Dealer extends Player {
     public ArrayList<Card> hand;
-    private String name;
 
     public Dealer() {
-        this.name = "Dealer";
         this.hand = new ArrayList<Card>();
     }
 
     public ArrayList<Card> getHand() {
         return hand;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void clearHand(){

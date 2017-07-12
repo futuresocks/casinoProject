@@ -1,4 +1,4 @@
-package com.example.colinbell.casino;
+package com.example.colinbell.casino.games;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,10 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.colinbell.casino.R;
+import com.example.colinbell.casino.scoreData.SavedScores;
+import com.example.colinbell.casino.nonGameScreens.aboutActivity;
 import com.example.colinbell.casino.cards.Deck;
 import com.example.colinbell.casino.cards.Guess;
-import com.example.colinbell.casino.games.Console;
-import com.example.colinbell.casino.players.Player;
 import com.example.colinbell.casino.players.User;
 
 import static com.example.colinbell.casino.R.string.draw;

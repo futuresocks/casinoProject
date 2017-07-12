@@ -1,4 +1,4 @@
-package com.example.colinbell.casino;
+package com.example.colinbell.casino.nonGameScreens;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import static com.example.colinbell.casino.R.id.about;
-import static com.example.colinbell.casino.R.id.blackjack;
-import static com.example.colinbell.casino.R.id.drawHiLo;
+import com.example.colinbell.casino.R;
+import com.example.colinbell.casino.games.blackjackActivity;
+import com.example.colinbell.casino.games.drawHiLoActivity;
+import com.example.colinbell.casino.nonGameScreens.aboutActivity;
 
 public class launchScreen extends AppCompatActivity {
 

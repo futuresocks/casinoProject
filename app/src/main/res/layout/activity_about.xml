@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/about"
-    tools:context="com.example.colinbell.casino.aboutActivity">
+    tools:context="com.example.colinbell.casino.nonGameScreens.aboutActivity">
 
     <TextView
         android:id="@+id/textView2"

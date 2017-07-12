@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public abstract class Player {
     private ArrayList<Card> hand;
-    private String name;
 
     public Player() {
         this.hand = new ArrayList<Card>();
@@ -40,7 +39,4 @@ public abstract class Player {
     public boolean isBust() {
         return (handTotal() > 21);}
 
-    public String getName() {
-        return this.name;
-    }
 }

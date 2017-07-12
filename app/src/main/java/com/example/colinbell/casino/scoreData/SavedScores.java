@@ -1,4 +1,4 @@
-package com.example.colinbell.casino;
+package com.example.colinbell.casino.scoreData;
 
 import android.content.Context;
 import android.content.SharedPreferences;

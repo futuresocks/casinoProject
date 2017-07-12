@@ -12,15 +12,9 @@ import java.util.Scanner;
 
 public class User extends Player{
     public ArrayList<Card> hand;
-    public String name;
 
     public User() {
         this.hand = new ArrayList<Card>();
-        this.name = "Player";
-    }
-
-    public String getName() {
-        return name;
     }
 
     public ArrayList<Card> getHand() {
@@ -29,6 +23,10 @@ public class User extends Player{
 
     public void clearHand(){
         this.hand.clear();
+    }
+
+    public void addCardtoHand(Card card){
+        hand.add(card);
     }
 
     public void takeCard(Deck deck) {

@@ -9,17 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".blackjackActivity" />
-        <activity android:name=".drawHiLoActivity" />
-        <activity android:name=".launchScreen">
+        <activity android:name=".games.blackjackActivity" />
+        <activity android:name=".games.drawHiLoActivity" />
+        <activity android:name=".nonGameScreens.launchScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".aboutActivity" />
-        <activity android:name=".twoCardDrag"></activity>
+        <activity android:name=".nonGameScreens.aboutActivity" />
+        <activity android:name=".games.twoCardDragActivity"></activity>
     </application>
 
 </manifest>
