@@ -70,8 +70,8 @@ public class User extends Player{
     public boolean isBust() {
         return (handTotal() > 21);}
 
-    public String showCard(int i){
-        return this.hand.get(i).cardName();
+    public Card showCard(int i){
+        return this.hand.get(i);
     }
 
     public void burnCard(){

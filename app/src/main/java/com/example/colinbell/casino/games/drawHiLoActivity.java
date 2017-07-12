@@ -8,10 +8,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.colinbell.casino.R;
+import com.example.colinbell.casino.cards.Card;
+import com.example.colinbell.casino.cards.Suit;
 import com.example.colinbell.casino.hiScoreActivity;
 import com.example.colinbell.casino.scoreData.SavedScores;
 import com.example.colinbell.casino.nonGameScreens.aboutActivity;
@@ -19,6 +22,10 @@ import com.example.colinbell.casino.cards.Deck;
 import com.example.colinbell.casino.cards.Guess;
 import com.example.colinbell.casino.players.User;
 
+import static com.example.colinbell.casino.R.drawable.club;
+import static com.example.colinbell.casino.R.drawable.diamond;
+import static com.example.colinbell.casino.R.drawable.heart;
+import static com.example.colinbell.casino.R.drawable.spade;
 import static com.example.colinbell.casino.R.string.draw;
 import static com.example.colinbell.casino.R.string.playerLoses;
 import static com.example.colinbell.casino.R.string.playerWins;
@@ -29,12 +36,14 @@ public class drawHiLoActivity extends AppCompatActivity {
     Button high;
     Button lower;
     Button deal;
-    TextView showCard;
+//    TextView showCard;
     TextView showStreak;
     TextView winLose;
     Console console;
     User player;
     Deck deck;
+    ImageView cardDisplay;
+    TextView rankDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +53,15 @@ public class drawHiLoActivity extends AppCompatActivity {
         high = (Button) findViewById(R.id.high);
         lower = (Button) findViewById(R.id.lo);
         deal = (Button) findViewById(R.id.deal);
-        showCard = (TextView) findViewById(R.id.showCard);
+//        showCard = (TextView) findViewById(R.id.showCard);
         showStreak = (TextView) findViewById(R.id.playerStreak);
         winLose = (TextView) findViewById(R.id.outcome);
         console = new Console();
         player = new User();
         deck = new Deck();
+        cardDisplay = (ImageView) findViewById(R.id.cardDisplay);
+        rankDisplay = (TextView) findViewById(R.id.rankDisplay);
+
 
 
         console.setUserScore(SavedScores.getScores(this, "playerStreak"));
@@ -95,7 +107,7 @@ public class drawHiLoActivity extends AppCompatActivity {
         } else {
             player.deal(deck);
         }
-        showCard.setText(player.showCard(0));
+        cardShower(player.showCard(0));
         high.setVisibility(View.VISIBLE);
         lower.setVisibility(View.VISIBLE);
         deal.setVisibility(View.INVISIBLE);
@@ -115,7 +127,7 @@ public class drawHiLoActivity extends AppCompatActivity {
     }
 
     public void endGame(Guess playerGuess) {
-        showCard.setText(player.showCard(1));
+        cardShower(player.showCard(1));
         Guess outcome = null;
         if (player.getHand().get(0).getRank().getRanking() > player.getHand().get(1).getRank().getRanking()) {
             outcome = Guess.LOWER;
@@ -141,6 +153,22 @@ public class drawHiLoActivity extends AppCompatActivity {
         SavedScores.saveScore(this, console.getUserScore(), "playerStreak");
         saveHiScore();
     }
+
+    public void cardShower(Card card){
+        rankDisplay.setText(card.getRank().getDisplayValue());
+        if (card.getSuit() == Suit.CLUBS){
+            cardDisplay.setImageResource(club);
+        }
+        if (card.getSuit() == Suit.DIAMONDS){
+            cardDisplay.setImageResource(diamond);
+        }
+        if (card.getSuit() == Suit.SPADES){
+            cardDisplay.setImageResource(spade);
+        }
+        if (card.getSuit() == Suit.HEARTS){
+            cardDisplay.setImageResource(heart);}
+    }
+
 
     public void saveHiScore(){
         if (console.getUserScore() > console.getHighScore()){
