@@ -108,6 +108,7 @@ public class drawHiLoActivity extends AppCompatActivity {
 
 
     public void onClickDeal(View view) {
+        winLose.setVisibility(View.INVISIBLE);
         rightCardDisplay.setImageResource(cardback);
         rightRankDisplay.setText("");
         if (player.countHand() == 1) {
@@ -154,7 +155,7 @@ public class drawHiLoActivity extends AppCompatActivity {
             console.setUserScore(0);
             winLose.setText(playerLoses);
         }
-
+        winLose.setVisibility(View.VISIBLE);
         player.burnCard();
         deal.setVisibility(View.VISIBLE);
         showStreak.setText(String.valueOf(console.getUserScore()));
